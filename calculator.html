@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="./calculator.js"></script>
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: hsl(0, 0%, 95%);
+        }
+
+        .wrapper {
+            font-family: sans-serif, Helvetica, Arial;
+            max-width: 302px;
+            background-color: hsl(0, 0%, 15%);
+            overflow: hidden;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 100px hsla(0, 2%, 20%, 0.868);
+        }
+
+        .buttonsContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            padding: 15px;
+        }
+
+        button {
+            height: 3rem;
+            width: 4rem;
+            border-radius: 10px;
+            border-style: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 2px;
+            background-color: hsl(0, 0%, 30%);
+            color: whitesmoke;
+        }
+
+        #displayResult {
+            width: 80%;
+            padding: 20px;
+            margin: 10px;
+            margin-top: 20px;
+            font-size: 2rem;
+            text-align: right;
+            border: 1px solid whitesmoke;
+            border-radius: 5px;
+            background-color: hsl(120, 14%, 30%);
+            color: hsl(0, 100%, 99%);
+            font-weight: bolder;
+        }
+
+        button:hover {
+            background-color: hsl(0, 0%, 40%);
+        }
+
+        button:active {
+            background-color: hsl(0, 0%, 50%);
+        }
+
+        .operator-btn {
+            background-color: hsl(35, 100%, 55%);
+        }
+
+        .operator-btn:hover {
+            background-color: hsl(35, 100%, 65%);
+        }
+
+        .operator-btn:active {
+            background-color: hsl(35, 100%, 75%);
+        }
+
+        #eval {
+            background-color: hsl(242, 89%, 46%);
+            width: 272px;
+            margin-left: 15px;
+            margin-top: -10px;
+            margin-right: 1px;
+            margin-bottom: 15px;
+        }
+
+        #eval:hover {
+            background-color: hsl(242, 67%, 25%);
+        }
+
+        #eval:active {
+            background-color: hsl(242, 98%, 62%);
+        }
+
+        .clr {
+            background-color: hsl(4, 96%, 35%);
+        }
+
+        .clr:hover {
+            background-color: hsl(0, 94%, 32%);
+        }
+
+        .clr:active {
+            background-color: hsl(4, 53%, 39%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- screen -->
+        <input type="text" name="displayResult" id="displayResult" class="displayResult" value="0" readonly>
+        <!-- buttons -->
+        <div class="buttonsContainer">
+            <!-- row 1 -->
+            <button onclick="insertValue('9')">9</button>
+            <button onclick="insertValue('8')">8</button>
+            <button onclick="insertValue('7')">7</button>
+            <button onclick="insertValue('+')" class="operator-btn">+</button>
+            <!-- <br> -->
+            <!-- row 2 -->
+            <button onclick="insertValue('6')">6</button>
+            <button onclick="insertValue('5')">5</button>
+            <button onclick="insertValue('4')">4</button>
+            <button onclick="insertValue('-')" class="operator-btn">-</button>
+            <!-- <br> -->
+            <!-- row 3 -->
+            <button onclick="insertValue('3')">3</button>
+            <button onclick="insertValue('2')">2</button>
+            <button onclick="insertValue('1')">1</button>
+            <button onclick="insertValue('*')" class="operator-btn">*</button>
+            <!-- <br> -->
+            <!-- row 4 -->
+            <button onclick="insertValue('.')" class="operator-btn">.</button>
+            <button onclick="insertValue('0')">0</button>
+            <button onclick="insertValue('%')" class="operator-btn">%</button>
+            <button onclick="insertValue('/')" class="operator-btn">/</button>
+            <!-- <br> -->
+            <!-- row 5 -->
+            <button onclick="insertValue('(')" class="operator-btn">(</button>
+            <button onclick="insertValue(')')" class="operator-btn">)</button>
+            <button onclick="backspace()" class="clr">⇽</button>
+            <button onclick="allClear()" class="clr">AC</button>
+            <!-- <br> -->
+            <!-- calculate -->
+        </div>
+        <button id="eval" onclick="calculate()">=</button>
+    </div>
+
+
+</body>
+
+</html>
